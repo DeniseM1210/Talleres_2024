@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista To-Do</title>
+    <link rel="stylesheet" href="../volver.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+    <script>
+        require(["dojo/on","dojo/dom","dojo/dom-construct","dojo/dom-attr","dojo/domReady!"],function(on,dom,domconstruct, domAttr){
+            on(dom.byId("addButton"),"click",function(){
+                var taskText = dom.byId("taskInput").value;
+                if(taskText){
+                    var li =domconstruct.create("li",{innerHTML:taskText});
+                    var deleteButton = domconstruct.create("button",{innerHTML:"Eliminar"});
+
+                    on(deleteButton,"click",function(){
+                        domconstruct.destroy(li);
+                    });
+                    domconstruct.place(deleteButton,li,"last");
+                    domconstruct.place(li,dom.byId("taskList"),"last");
+                    domAttr.set(dom.byId("taskInput"),"value","");
+                }else{
+                    alert("Por favor ingresa una tarea");
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <br>
+    <a class="volver" href="../index.html">Volver</a>
+    <h1>Lista de Tareas</h1>
+    <input type="text" id="taskInput" placeholder="Ingresa una tarea" required>
+    <button id="addButton">Agregar</button>
+    <ul id="taskList"></ul>
+
+
+
+
+</body>
+</html>

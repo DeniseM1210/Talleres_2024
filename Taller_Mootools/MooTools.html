@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo MooTools</title>
+
+    <script type="text/javascript" src="MooTools-Core-1.6.0.js"></script>
+    <script type="text/javascript" src="MooTools-More-1.6.0.js"></script>
+
+    <script type="text/javascript">
+        var rgbHex_Demo = function(){
+
+            var rojo = $('rojo').get('value');
+            var rojo_valor = rojo.toInt();
+
+            var verde = $('verde').get('value');
+            var verde_valor = verde.toInt();
+
+            var azul = $('azul').get('value');
+            var azul_valor = azul.toInt();
+
+            var color = [rojo_valor, verde_valor, azul_valor].rgbHex_Demo();
+            alert("El color hexadecimal es: " + color);
+        };
+
+        window.addEvent('domready', function(){
+            $('rgbtoHex').addEvent('click', rgbHex_Demo);
+
+        });
+
+    </script>
+    <style>
+        .fcc-btn {
+            background-color: #bb7ada;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .fcc-btn:hover {
+            background-color: #223094;
+        }
+    </style>
+</head>
+<body>
+    <a class="fcc-btn" href="../index.html">Regresar al menu</a>
+    <br>
+    <br>
+    
+    Valor del color Rojo: <input type="text" id="rojo"> <br> <br>
+    Valor del color Verde: <input type="text" id="verde"> <br> <br>
+    Valor del color Azul: <input type="text" id="azul"> <br> <br>
+
+    <input type="button" id="rgbtoHex" value="RGB a HEXADECIMAL">
+</body>
+</html>
